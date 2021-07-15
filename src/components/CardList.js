@@ -9,14 +9,18 @@ const CardList = props => {
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState({card:{board_id: null, card_id: null, message:'', like_count:''}});
 
-  useEffect( () => {
+  const getCards = () => {
     axios
-      .get(`http://localhost:5000/boards/${props.board_id}/cards`)
-      .then( response => {
-        setCards(response.data);
-      })
-      .catch(error => console.log(error))
-      .finally( () => console.log(`Tried to get cards for board ${props.board_id}`))
+    .get(`http://localhost:5000/boards/${props.board_id}/cards`)
+    .then( response => {
+      setCards(response.data);
+    })
+    .catch(error => console.log(error))
+    .finally( () => console.log(`Tried to get cards for board ${props.board_id}`))
+  }
+
+  useEffect( () => {
+    getCards();
     }, [cards, props.board_id]);
 
   const onDeleteCard = id => {
@@ -30,6 +34,17 @@ const CardList = props => {
       .finally( () => console.log(`Tried to get cards for board ${id}`))
     }
 
+    const onVoteCard = (id, vote )=> {
+      axios
+      .patch(`http://localhost:5000/${id}/votes?like_count=${vote}`)
+      .then( response => {
+        getCards();
+    })
+    .catch(error => console.log(error))
+    .finally( () => console.log(`Tried to update votes`))
+
+    }
+
   return (
     <section id="card-list">
     {cards.map( card => 
@@ -37,8 +52,9 @@ const CardList = props => {
         board_id={card.board_id} 
         card_id={card.card_id} 
         message={card.message} 
-        votes={card.like_count} 
-        onDeleteCard={onDeleteCard} 
+        votes={card.votes} 
+        onDeleteCard={onDeleteCard}
+        onVoteCard={onVoteCard} 
       />
     )}
     </section>

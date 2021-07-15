@@ -7,11 +7,14 @@ const Card = (props) => {
   const onDeleteButtonClick = event => {
     props.onDeleteCard(props.card_id);
   }
+  const onVoteButtonClick = event => {
+    props.onVoteCard(props.card_id, 1);
+  }
     
     return (
       <div className="card">
         <h2>Message: {props.message}</h2>
-        <button> Vote </button>
+        <button onClick={onVoteButtonClick}> Vote: {props.votes}</button>
         <button onClick={onDeleteButtonClick}> Delete </button>
       </div>
     );
