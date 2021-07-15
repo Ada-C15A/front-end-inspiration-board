@@ -8,12 +8,14 @@ import BoardList from './components/BoardList';
 function App() {
   return (
     <div className="App">
-      <header>
+      <header className="page-header">
         <h1>
-          🥭 Mango Mania Inspiration Boards 🥭 🥭
+          Mango Mania Inspiration Board
         </h1>
       </header>
-      <BoardList />
+      <section id="boardListSection">
+        <BoardList />
+      </section>
     </div>
   );
 }

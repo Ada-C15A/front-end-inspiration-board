@@ -8,9 +8,9 @@ const axios = require('axios');
 const BoardList = (props) => {
   const[boards, setBoards] = useState([]);
   const[selectedBoard, setSelectedBoard] = useState({
-    owner: 'Test',
+    owner: '',
     board_id: null,
-    title: 'Please work'
+    title: ''
   });
 
   const onBoardSelect = (event) => {
@@ -18,7 +18,7 @@ const BoardList = (props) => {
     axios
       .get(`http://localhost:5000/boards/${event.target.value}`)
       .then( response => {
-        setSelectedBoard(response.data);
+        setSelectedBoard(response.data.board);
         console.log(response.data)
       })
       .catch( error => console.log(error))
@@ -28,8 +28,10 @@ const BoardList = (props) => {
     axios
     .get('http://localhost:5000/boards')
     .then(response => {
-      // console.log(response.data);
       setBoards(response.data);
+      if (response.data.length > 0 ){
+        setSelectedBoard(response.data[0]);
+      }
     })
     .catch(error => {
       console.log(error)
@@ -40,21 +42,13 @@ const BoardList = (props) => {
 
   return (
     <>
-      <ul>
-        {boards.map( board => 
-          <li key={board.board_id}>
-            <strong>{board.title}</strong>
-            <br />
-            owner: {board.owner}
-          </li>
-        )}
-      </ul>
-      <select onChange={onBoardSelect}>
+      <h2>Choose a board</h2>
+      <select className="board-list" onChange={onBoardSelect}>
         {boards.map( board =>
           <option key={board.board_id} value={board.board_id}>{board.title}</option>
         )}
       </select>
-      <Board title={selectedBoard.board.title} owner={selectedBoard.board.owner} />
+      {selectedBoard.board_id && <Board board_id={selectedBoard.board_id} title={selectedBoard.title} owner={selectedBoard.owner} />}
     </>
   )
 };

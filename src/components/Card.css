@@ -1,0 +1,45 @@
+.card{
+  padding: 10px;
+  grid-gap: 1rem;
+  position: relative;
+  margin: 10px auto;
+  width: 28vw;
+  height: 16em;
+  background: #ff8;
+  border-radius: 2px;
+}
+
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  width: 40%;
+  height: 10px;
+  box-shadow: 0 5px 14px rgba(0,0,0,.8);
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+
+.card::before {
+  left: 15px;
+  transform: skew(-5deg) rotate(-5deg);
+}
+
+.card::after {
+  right: 15px;
+  transform: skew(5deg) rotate(5deg);
+}
+
+.card:hover::before,
+.card:hover::after {
+  box-shadow: 0 2px 14px rgba(0,0,0,.4);
+}
+
+.card:hover::before {
+  left: 5px;
+}
+
+.card:hover::after {
+  right: 5px;
+}
