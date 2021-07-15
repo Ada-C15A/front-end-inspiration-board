@@ -14,8 +14,8 @@ const Card = (props) => {
     return (
       <div className="card">
         <h2>Message: {props.message}</h2>
-        <button onClick={onVoteButtonClick}> Vote: {props.votes}</button>
-        <button onClick={onDeleteButtonClick}> Delete </button>
+        <button className="cardBtns" onClick={onVoteButtonClick}> Vote: {props.votes}</button>
+        <button className="cardBtns" onClick={onDeleteButtonClick}> Delete </button>
       </div>
     );
 };

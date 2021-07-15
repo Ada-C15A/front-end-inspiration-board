@@ -20,8 +20,6 @@ const Board = (props) => {
     })
     .catch(error => console.log(error))
     .finally('Tried to make a new card')
-
-
   }
   return (
     <section className="board">
@@ -36,11 +34,9 @@ const Board = (props) => {
 
 };
 
-// Board.propTypes = {
-//     title: PropTypes.string.isRequired,
-//     owner: PropTypes.string.isRequired,
-//     // onClickCallback: PropTypes.func.isRequired,
-//     // id: PropTypes.number.isRequired,
-// };
+Board.propTypes = {
+  title: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
+};
     
 export default Board;

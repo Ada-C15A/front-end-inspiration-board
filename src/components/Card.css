@@ -43,3 +43,8 @@
 .card:hover::after {
   right: 5px;
 }
+.cardBtns {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}

@@ -42,7 +42,6 @@ const CardList = props => {
     })
     .catch(error => console.log(error))
     .finally( () => console.log(`Tried to update votes`))
-
     }
 
   return (

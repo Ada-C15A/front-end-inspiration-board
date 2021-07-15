@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const NewBoardForm = () => {
+const NewBoardForm = (props) => {
     const [formFields, setFormFields] = useState({
         title: '',
         owner: '',
@@ -18,29 +18,42 @@ const NewBoardForm = () => {
             owner: event.target.value
         })
     };
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
+        props.addBoardCallback({
+            title: formFields.title,
+            owner: formFields.owner
+        });
+        setFormFields({
+            title: '',
+            owner: '',
+        });
+    };
+
+    // const onBoardSubmit = event => {
+    //     event.preventDefault();
+    //     props.addBoard(formFields)
+    // }
     return (
-        <form>
+        <form onSubmit={onFormSubmit}>
             <div>
                 <label htmlFor="title">Title:</label>
-                <input>
+                <input
                     name="title"
                     value={formFields.title}
                     onChange={onTitleChange}
-                </input>
+                />
             </div>
             <div>
                 <label htmlFor="owner">Owner:</label>
-                <input>
+                <input
                     name="owner"
-                    value={formFields.title}
+                    value={formFields.owner}
                     onChange={onOwnerChange}
-                </input>
+                />
             </div>
-            <input>
-                type="submit"
-                value="Add Board"
-            </input>
+            <button>Submit</button>
         </form>
     );
 };
