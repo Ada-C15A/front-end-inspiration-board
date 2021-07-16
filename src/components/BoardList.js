@@ -34,7 +34,7 @@ const BoardList = (props) => {
   }
 
   const addBoard = ({title, owner}) => {
-    axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards`)
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards`,{title, owner})
     .then( response => {
       console.log(response.data);
       getBoards();
