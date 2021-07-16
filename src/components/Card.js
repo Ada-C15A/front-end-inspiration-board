@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
@@ -13,10 +13,10 @@ const Card = (props) => {
     
   return (
     <div className="card">
-      <h2>Message: {props.message}</h2>
+      <h3>Message: {props.message}</h3>
       <div className="card-buttons">
-        <button className="cardBtns" onClick={onVoteButtonClick}> 🥭: {props.votes}</button>
-        <button className="cardBtns" onClick={onDeleteButtonClick}> Delete </button>
+        <button className="card-button" onClick={onVoteButtonClick}>🥭: {props.votes}</button>
+        <button className="card-button" onClick={onDeleteButtonClick}> Delete </button>
       </div>
     </div>
   );

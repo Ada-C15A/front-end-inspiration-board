@@ -6,36 +6,95 @@ html, body {
 body {
   background-image: linear-gradient( rgb(153, 218, 160),#5df);
   font-family: 'Raleway', sans-serif;
+  color: #134;
 }
 .page-header{
-  background-image: 
+  background: 
   repeating-linear-gradient(
     45deg,
-    rgba(255,255,255, 0.2),
-    rgba(255,255,255, 0.2) 10px,
-    rgba(255,255,255, 0.3) 10px,
-    rgba(255,255,255, 0.3) 20px
+    rgba(180,160, 50, 0.4),
+    rgba(180,160,05, 0.4) 10px,
+    rgba(160,160,120, 0.6) 10px,
+    rgba(160,160,120, 0.6) 20px
   ), url(./images/mangoBG.jpeg);
-  height: 7.5vh;
-  font-size: 1.5rem;
-  text-shadow: 2px 2px 0 #5df;
+  max-height: 9em;
+  padding: 1.75em 0;
 }
-#boardListSection{
+h1,h2,h3,h4,h5,h6, .new-item-input {
+  font-family: 'Indie Flower', cursive;
+}
+h1 {
+  text-align: center;
+  font-size: 14vw;
+  /* font-family: 'Raleway',sans-serif; */
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 0 rgb(37, 50, 53), 2px 2px 0 rgb(71, 234, 255);
+}
+h1 span {
+  display: block;
+}
+
+#main-content{
   flex: auto;
 }
 
 button{
-  font-size: 1.25rem;
   background-color: rgba(255, 166, 0, 0.6);
   border: 1px solid rgba(255, 89, 0, 0.892);
   border-radius: 5px;
-  padding: 10px;
-  width: 35%;
+  padding: 4px;
+  width: 5em;
+  height: 2em;
   margin: .5em;
 }
 button:hover{
   background-color: rgba(255,166,0,.8);
 }
-button.card-buttons {
+.card-buttons {
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.card-buttons .card-button {
+
+}
+
+@media (min-width:300px) {
+  .page-header {
+    max-height: 6em;
+  }
+  h1 {
+    font-size: 11vw;
+  }
+  h1 span.h1-line2 {
+    display: inline;
+  }
+}
+@media (min-width:400px) {
+  h1 {
+    font-size: 7vw;
+  }
+  h1 span.h1-line1{
+    display: inline;
+  }
+}
+@media (min-width: 500px) {
+  h1 {
+    font-size: 6.75vw;
+  }
+}
+@media (min-width:800px) {
+  button {
+    font-size: 1.125rem;
+    padding: 7px;
+    width: 6em;
+    height: 2.25em;
+  }
+}
+
+@media (min-width:1130px) {
+  h1 {
+    font-size: 72px;
+  }
 }

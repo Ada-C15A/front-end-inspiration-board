@@ -55,7 +55,7 @@ const CardList = props => {
         onDeleteCard={onDeleteCard}
         onVoteCard={onVoteCard} 
       />
-    )};
+    )}
     </section>
   );
 };

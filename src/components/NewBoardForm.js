@@ -51,7 +51,7 @@ const NewBoardForm = (props) => {
                     onChange={onOwnerChange}
                 />
             </div>
-            <button>Submit</button>
+            <button className="submit-add">Submit</button>
         </form>
     );
 };

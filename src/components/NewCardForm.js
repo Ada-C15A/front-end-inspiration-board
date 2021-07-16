@@ -32,7 +32,7 @@ const NewCardForm = (props) => {
                 onChange={onMessageChange}
                 maxLength="40"
             />
-            <button>Submit</button>
+            <button className="submit-add">Submit</button>
         </form>
     );
 };

@@ -10,10 +10,10 @@ function App() {
     <div className="App">
       <header className="page-header">
         <h1>
-          Mango Mania Inspiration Board
+          <span className="h1-line1">Mango Mania</span> <span className="h1-line2">Inspiration</span> <span className="h1-line2">Board</span>
         </h1>
       </header>
-      <main id="boardListSection">
+      <main id="main-content">
         <BoardList />
       </main>
     </div>

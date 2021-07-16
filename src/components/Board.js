@@ -26,7 +26,7 @@ const Board = (props) => {
       <h2>Title: {props.title}</h2>
       <p>Owner: {props.owner}</p>
       <CardList board_id={props.board_id} />
-      <button onClick={onNewCardButtonClick}>Create New Card</button>
+      <button className="create-button" onClick={onNewCardButtonClick}>Create New Card</button>
 
       {makeNewCard && <NewCardForm addCardCallback={addCard} />}
     </section>
