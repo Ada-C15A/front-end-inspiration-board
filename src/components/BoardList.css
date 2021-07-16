@@ -1,0 +1,27 @@
+#main-content>h2:first-child {
+  padding-left: 2.5%;
+  font-size: 3em;
+  margin-bottom: .125rem;
+}
+.board-list-select {
+  font-size: 1.5em;
+  padding: .25rem .5rem .3rem;
+  border-radius: 5px;
+  margin-left: 2.5%;
+}
+option {
+  display: block;
+  width: 100%;
+}
+.create-button:last-child {
+  margin-left: 2.5%;
+}
+button.create-button, .board-list-select {
+  background: linear-gradient(rgba(255,255,255,0.7),rgba(255,220,0,0.3), rgba(255,255,255,0.7));
+  width: 90vw;
+  margin: 2rem auto;
+}
+button.create-button:hover, .board-list-select:hover {
+  background: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,0,0.6),rgba(255,255,255,0.8));
+  color: #fa0;
+}
