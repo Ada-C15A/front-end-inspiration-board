@@ -18,6 +18,7 @@ const BoardList = (props) => {
     axios
     .get(`${process.env.REACT_APP_BACKEND_URL}/boards`)
     .then(response => {
+      console.log(process.env.REACT_APP_BACKEND_URL);
       setBoards(response.data);
       if (response.data.length > 0 ){
         setSelectedBoard(response.data[0]);
@@ -70,11 +71,6 @@ const BoardList = (props) => {
       {makeNewBoard && <NewBoardForm addBoardCallback={addBoard} />}
     </>
   );
-};
-
-BoardList.propTypes = {
-  title: PropTypes.string.isRequired,
-  owner: PropTypes.string.isRequired,
 };
 
 export default BoardList;
