@@ -14,7 +14,7 @@ const Board = (props) => {
   }
   
   const addCard = message => {
-    axios.post(`http://localhost:5000/boards/${props.board_id}/cards`, message)
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards/${props.board_id}/cards`, message)
     .then( response => {
       console.log(response.data)
     })
@@ -26,7 +26,7 @@ const Board = (props) => {
       <h2>Title: {props.title}</h2>
       <p>Owner: {props.owner}</p>
       <CardList board_id={props.board_id} />
-      <button onClick={onNewCardButtonClick}>create new card</button>
+      <button onClick={onNewCardButtonClick}>Create New Card</button>
 
       {makeNewCard && <NewCardForm addCardCallback={addCard} />}
     </section>

@@ -22,15 +22,16 @@ const NewCardForm = (props) => {
         });
     };
     return (
-        <form onSubmit={onFormSubmit}>
-            <div>
-                <label htmlFor="message">Message:</label>
-                <input
-                    name="message"
-                    value={formFields.message}
-                    onChange={onMessageChange}
-                />
-            </div>
+        <form onSubmit={onFormSubmit} id="new-card-form">
+            <label htmlFor="new-card-message">Message:</label>
+            <input
+                classname="new-item-input"
+                id="new-card-message"
+                name="new-card-message"
+                value={formFields.message}
+                onChange={onMessageChange}
+                maxLength="40"
+            />
             <button>Submit</button>
         </form>
     );

@@ -31,15 +31,12 @@ const NewBoardForm = (props) => {
         });
     };
 
-    // const onBoardSubmit = event => {
-    //     event.preventDefault();
-    //     props.addBoard(formFields)
-    // }
     return (
-        <form onSubmit={onFormSubmit}>
+        <form onSubmit={onFormSubmit} id="new-board-form">
             <div>
                 <label htmlFor="title">Title:</label>
                 <input
+                    classname="new-item-input"
                     name="title"
                     value={formFields.title}
                     onChange={onTitleChange}
@@ -48,6 +45,7 @@ const NewBoardForm = (props) => {
             <div>
                 <label htmlFor="owner">Owner:</label>
                 <input
+                    classname="new-item-input"
                     name="owner"
                     value={formFields.owner}
                     onChange={onOwnerChange}

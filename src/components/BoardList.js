@@ -16,7 +16,7 @@ const BoardList = (props) => {
 
   const getBoards = () => {
     axios
-    .get('http://localhost:5000/boards')
+    .get(`${process.env.REACT_APP_BACKEND_URL}/boards`)
     .then(response => {
       setBoards(response.data);
       if (response.data.length > 0 ){
@@ -33,7 +33,7 @@ const BoardList = (props) => {
   }
 
   const addBoard = ({title, owner}) => {
-    axios.post('http://localhost:5000/boards')
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards`)
     .then( response => {
       console.log(response.data);
       getBoards();
@@ -45,7 +45,7 @@ const BoardList = (props) => {
   const onBoardSelect = (event) => {
     console.log("OnBoardSelect about to axios call")
     axios
-      .get(`http://localhost:5000/boards/${event.target.value}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/boards/${event.target.value}`)
       .then( response => {
         setSelectedBoard(response.data.board);
         console.log(response.data)
@@ -56,7 +56,6 @@ const BoardList = (props) => {
   useEffect( () => {
     getBoards();
   }, []);
-  // [boards]);
 
   return (
     <>
@@ -70,7 +69,12 @@ const BoardList = (props) => {
       <button onClick={onNewBoardButtonClick}>Create New Board</button>
       {makeNewBoard && <NewBoardForm addBoardCallback={addBoard} />}
     </>
-  )
+  );
+};
+
+BoardList.propTypes = {
+  title: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
 };
 
 export default BoardList;

@@ -7,6 +7,7 @@
   height: 16em;
   background: #ff8;
   border-radius: 2px;
+  text-align: center;
 }
 
 .card::before,
@@ -33,7 +34,7 @@
 
 .card:hover::before,
 .card:hover::after {
-  box-shadow: 0 2px 14px rgba(0,0,0,.4);
+  box-shadow: 0 2px 14px rgba(0,0,0,.7);
 }
 
 .card:hover::before {
@@ -42,9 +43,4 @@
 
 .card:hover::after {
   right: 5px;
-}
-.cardBtns {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
 }

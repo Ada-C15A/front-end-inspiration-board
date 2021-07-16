@@ -13,9 +13,9 @@ function App() {
           Mango Mania Inspiration Board
         </h1>
       </header>
-      <section id="boardListSection">
+      <main id="boardListSection">
         <BoardList />
-      </section>
+      </main>
     </div>
   );
 }

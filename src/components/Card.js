@@ -11,20 +11,21 @@ const Card = (props) => {
     props.onVoteCard(props.card_id, 1);
   }
     
-    return (
-      <div className="card">
-        <h2>Message: {props.message}</h2>
-        <button className="cardBtns" onClick={onVoteButtonClick}> Vote: {props.votes}</button>
+  return (
+    <div className="card">
+      <h2>Message: {props.message}</h2>
+      <div className="card-buttons">
+        <button className="cardBtns" onClick={onVoteButtonClick}> 🥭: {props.votes}</button>
         <button className="cardBtns" onClick={onDeleteButtonClick}> Delete </button>
       </div>
-    );
+    </div>
+  );
 };
 
-// TODO
-// Card.propTypes = {
-//     title: PropTypes.string.isRequired,
-//     onDeleteCard: PropTypes.func.isRequired
-
-// };
+Card.propTypes = {
+  message: PropTypes.string.isRequired,
+  onDeleteCard: PropTypes.func.isRequired,
+  onVoteCard: PropTypes.func.isRequired
+};
 
 export default Card;

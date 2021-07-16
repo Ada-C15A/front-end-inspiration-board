@@ -25,7 +25,7 @@ const CardList = props => {
 
   const onDeleteCard = id => {
     axios
-      .delete(`http://localhost:5000/${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/${id}`)
       .then( response => {
           const newCards= cards.filter( (card) => card.card_id !== id)
         setCards(newCards);
@@ -36,7 +36,7 @@ const CardList = props => {
 
     const onVoteCard = (id, vote )=> {
       axios
-      .patch(`http://localhost:5000/${id}/votes?like_count=${vote}`)
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/${id}/votes?like_count=${vote}`)
       .then( response => {
         getCards();
     })
@@ -55,8 +55,8 @@ const CardList = props => {
         onDeleteCard={onDeleteCard}
         onVoteCard={onVoteCard} 
       />
-    )}
+    )};
     </section>
-  )
-}
+  );
+};
 export default CardList;

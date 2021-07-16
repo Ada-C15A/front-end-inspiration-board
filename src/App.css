@@ -1,5 +1,21 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  background-image: linear-gradient( rgb(153, 218, 160),#5df);
+  font-family: 'Raleway', sans-serif;
+}
 .page-header{
-  background-image: url(./images/mangoBG.jpeg);
+  background-image: 
+  repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255, 0.2),
+    rgba(255,255,255, 0.2) 10px,
+    rgba(255,255,255, 0.3) 10px,
+    rgba(255,255,255, 0.3) 20px
+  ), url(./images/mangoBG.jpeg);
   height: 7.5vh;
   font-size: 1.5rem;
   text-shadow: 2px 2px 0 #5df;
@@ -10,6 +26,16 @@
 
 button{
   font-size: 1.25rem;
-  background-color: orange;
-  padding: 5px;
+  background-color: rgba(255, 166, 0, 0.6);
+  border: 1px solid rgba(255, 89, 0, 0.892);
+  border-radius: 5px;
+  padding: 10px;
+  width: 35%;
+  margin: .5em;
+}
+button:hover{
+  background-color: rgba(255,166,0,.8);
+}
+button.card-buttons {
+  margin: 0 auto;
 }
