@@ -32,8 +32,8 @@ const BoardList = (props) => {
     setMakeNewBoard(true);
   }
 
-  const addBoard = (title, owner) => {
-    axios.post(`http://localhost:5000/boards`, title, owner)
+  const addBoard = ({title, owner}) => {
+    axios.post('http://localhost:5000/boards')
     .then( response => {
       console.log(response.data);
       getBoards();
@@ -55,24 +55,20 @@ const BoardList = (props) => {
   }
   useEffect( () => {
     getBoards();
-  }, [boards]);
+  }, []);
+  // [boards]);
 
   return (
     <>
       <h2>Choose a board</h2>
       <select className="board-list" onChange={onBoardSelect}>
-        {boards.map( board =>
-          <option key={selectedBoard.board_id} value={selectedBoard.board_id}>{selectedBoard.title}</option>
+        {boards.map(board =>
+          <option key={board.board_id} value={board.board_id}>{board.title}</option>
         )}
       </select>
-      {selectedBoard.board_id && <Board key={selectedBoard.board_id} 
-                                        board_id={selectedBoard.board_id} 
-                                        title={selectedBoard.title} 
-                                        owner={selectedBoard.owner}
-                                        addBoard={addBoard} />}
+      {selectedBoard.board_id && <Board key={selectedBoard.board_id} board_id={selectedBoard.board_id}title={selectedBoard.title} owner={selectedBoard.owner}addBoard={addBoard} />}
       <button onClick={onNewBoardButtonClick}>Create New Board</button>
       {makeNewBoard && <NewBoardForm addBoardCallback={addBoard} />}
-
     </>
   )
 };

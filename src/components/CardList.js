@@ -21,7 +21,7 @@ const CardList = props => {
 
   useEffect( () => {
     getCards();
-    }, [cards, props.board_id]);
+    }, []);
 
   const onDeleteCard = id => {
     axios
